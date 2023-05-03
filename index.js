@@ -1,3 +1,7 @@
+let inventory = document.createElement(`div`)
+
+
+
 function newImage(url, left, bottom){
     let object = document.createElement('img')
     object.src = url
@@ -10,6 +14,12 @@ function newImage(url, left, bottom){
 
 function newItem(url, left, bottom){
     let item = newImage(url, left, bottom)
+    item.addEventListener(`click`, function(){
+        item.remove()
+        let inventoryItem = document.createElement(`img`)
+        inventoryItem.src = url
+        inventory.append(inventoryItem)
+    })
 }
 
 function newInventory(){
